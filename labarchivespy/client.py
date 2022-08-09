@@ -109,6 +109,8 @@ class Client():
             expires=expires,
             sig=signature
         )
+        if param_string:
+            query_url += "&" + param_string
         response = requests.get(query_url)
 
         return response
