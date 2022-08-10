@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from hashlib import sha1
 import requests
 
-QUERY_STR = '{api_url}/{api_class}/{api_method}?akid={akid}'
+QUERY_STR = '{api_url}/{api_class}/{api_method}?{params}akid={akid}'
 QUERY_STR_WSIG = QUERY_STR + '&expires={expires}&sig={sig}'
 
 class Client():
@@ -35,6 +35,7 @@ class Client():
             api_url=self.url,
             api_class=api_class,
             api_method=api_method,
+            params='',
             akid=self.akid
         )
 
